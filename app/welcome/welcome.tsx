@@ -1,6 +1,8 @@
 import React from "react";
 import HeroCard from "components/HeroCard";  
 import Navbar from "components/Navbar";
+import SimpleCardSection from "components/CardsSection";
+import CardSection from "components/CardsSection";
  
 
  
@@ -27,7 +29,7 @@ export function Welcome() {
 
       {/* ← Insert the cards section here */}
       <HeroCard />
-
+      <CardSection/>
       {/* rest of your page (callout, footer, etc.) */}
       <section className="w-full bg-white/60 dark:bg-slate-900/70 py-12">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
