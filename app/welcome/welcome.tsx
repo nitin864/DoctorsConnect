@@ -1,69 +1,93 @@
-import Navbar from "components/Navbar";
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
+import React from "react";
+import HeroCard from "components/HeroCard"; // keep if you still need direct usage
+ 
+
+function Navbar() {
+  return (
+    <header className="w-full">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <img src="/logo-dark.svg" alt="Site logo" className="h-8 w-auto" />
+          <span className="hidden sm:inline text-sm font-semibold text-slate-600 dark:text-slate-200">EkaCare (demo)</span>
+        </div>
+
+        <nav className="hidden md:flex items-center gap-6">
+          <a href="#features" className="text-sm text-slate-600 dark:text-slate-300 hover:underline">Features</a>
+          <a href="/doctors" className="text-sm text-slate-600 dark:text-slate-300 hover:underline">For Doctors</a>
+          <a href="/pricing" className="text-sm text-slate-600 dark:text-slate-300 hover:underline">Pricing</a>
+          <a href="/login" className="text-sm font-medium text-slate-700 dark:text-slate-200 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-transparent">Sign in</a>
+        </nav>
+
+        <div className="md:hidden">
+          <button aria-label="open menu" className="p-2 rounded-md bg-slate-100 dark:bg-slate-800">☰</button>
+        </div>
+      </div>
+    </header>
+  );
+}
 
 export function Welcome() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-black flex flex-col items-center">
+    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-black text-slate-800 dark:text-slate-100">
       <Navbar />
 
-      <section className="w-full max-w-5xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-6">
-        {/* Image */}
-        <img
-          src="/doctors.gif"
-          alt="Illustration of doctors"
-          className="w-56 sm:w-72 md:w-96 h-auto object-contain animate-fade-in"
-          loading="eager"
-        />
+      {/* Hero section (your existing hero) */}
+      <section className="w-full max-w-6xl mx-auto px-6 py-20 flex flex-col items-center text-center gap-6">
+        <img src="/doctors.gif" alt="doctors illustration" className="w-56 sm:w-72 md:w-96 h-auto object-contain animate-fade-in" loading="eager" />
 
-        {/* Headline */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-          <span className="bg-gradient-to-r from-blue-600 via-teal-500 to-green-400 bg-clip-text text-transparent">
-            Revolutionizing healthcare
-          </span>{" "}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight max-w-4xl">
+          <span className="bg-gradient-to-r from-blue-600 via-teal-500 to-green-400 bg-clip-text text-transparent">Revolutionizing healthcare</span>{" "}
           through intelligent digital solutions
         </h1>
 
-        {/* Subtext */}
         <p className="max-w-2xl text-sm sm:text-base text-gray-600 dark:text-gray-300">
-          Go paperless with digital appointments, smart prescriptions, and secure
-          records — powered by Health AI.
+          Go paperless with digital appointments, smart prescriptions, and secure records — powered by Health AI.
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 mt-2">
-          <a
-            href="/book"
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-blue-600 text-white font-medium shadow hover:scale-[1.02] transform transition"
-          >
-            Book Appointment
-          </a>
-
-          <a
-            href="/doctors"
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 bg-white/50 dark:bg-transparent font-medium hover:bg-slate-100 transition"
-          >
-            For Doctors
-          </a>
-        </div>
-
-        {/* Features */}
-        <div className="mt-4 flex flex-wrap justify-center gap-6 text-xs text-gray-500 dark:text-gray-400">
-          <span>📅 Digital Appointments</span>
-          <span>💊 Smart Prescriptions</span>
-          <span>🩺 AI Health Insights</span>
+          <a href="/book" className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-blue-600 text-white font-medium shadow hover:scale-[1.02] transform transition">Book Appointment</a>
+          <a href="/doctors" className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 bg-white/50 dark:bg-transparent font-medium hover:bg-slate-100 transition">For Doctors</a>
         </div>
       </section>
 
-      {/* Small Animation Style */}
+      {/* ← Insert the cards section here */}
+      <HeroCard />
+
+      {/* rest of your page (callout, footer, etc.) */}
+      <section className="w-full bg-white/60 dark:bg-slate-900/70 py-12">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          <div className="md:col-span-2">
+            <h3 className="text-lg font-semibold">Secure records. Better outcomes.</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 max-w-xl">Store patient history, prescriptions and lab reports in one safe place — accessible to patients and clinicians.</p>
+          </div>
+
+          <div className="flex justify-center md:justify-end">
+            <a href="/signup" className="px-5 py-2.5 rounded-lg bg-green-600 text-white font-medium">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      {/* footer */}
+      <footer className="w-full mt-12 border-t border-slate-100 dark:border-slate-800">
+        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <img src="/logo-light.svg" alt="logo" className="h-7" />
+            <div className="text-xs text-slate-500 dark:text-slate-400">© {new Date().getFullYear()} EkaCare (demo). All rights reserved.</div>
+          </div>
+
+          <div className="flex gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <a href="/terms" className="hover:underline">Terms</a>
+            <a href="/privacy" className="hover:underline">Privacy</a>
+          </div>
+        </div>
+      </footer>
+
       <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(12px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-          animation: fadeInUp 800ms ease both;
-        }
+        .animate-fade-in { animation: fadeInUp 800ms ease both; }
       `}</style>
     </main>
   );
