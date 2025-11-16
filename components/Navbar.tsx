@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  
   const menuItems = [
     { name: "Dashboard", icon: "📊", href: "/dashboard" },
     { name: "Patients", icon: "👥", href: "/patients" },

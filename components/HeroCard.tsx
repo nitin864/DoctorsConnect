@@ -3,7 +3,7 @@ import React from "react";
 function HeroCard() {
   const cards = [
     {
-      icon: "📅", // Replace with SVG icons for better visuals if needed
+      icon: "📅", 
       title: "Digital Appointments",
       description: "Effortlessly book and manage appointments with automated reminders and instant confirmations.",
     },
